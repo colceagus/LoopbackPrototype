@@ -1,5 +1,5 @@
 {
-  "name": "lb-proto",
+  "name": "LoopbackPrototype",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
@@ -24,9 +24,9 @@
     "nsp": "^2.1.0"
   },
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "git",
+    "url": "https://github.com/danielmihai/LoopbackPrototype.git"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "description": "lb-proto"
 }
