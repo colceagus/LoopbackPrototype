@@ -17,15 +17,16 @@ To Create a new Database:
 	``` sudo -u postgres createdb loopback ```
 
 To Create a new Table: 
-	``` 
+	```sql 
 	CREATE TABLE [table-name] {
 		col_name1 col_type (field-length) col_constraints,
 		col_name2 col_type (field-length),
 		col_name3 col_type (field-length)
-	}```
+	}
+	```
 
 	Example:
-	```
+	```sql
 	CREATE TABLE user {
 		id serial PRIMARY KEY,
 		email varchar (50) NOT NULL,
