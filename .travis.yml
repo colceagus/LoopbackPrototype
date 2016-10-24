@@ -7,7 +7,8 @@ services:
 before_install:
   - sudo -u postgres createdb loopback
   - sudo -u postgres createuser -s loopback
-  - sudo adduser loopback
+  - sudo adduser loopback --disabled-password --gecos --no-create-home
+  - echo -e "loopback\nloopback\n" | sudo passwd loopback
 install:
   - npm install -g -y strongloop loopback
   - npm install
