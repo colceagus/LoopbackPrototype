@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "6"
+  - "4"
+services:
+  - postgresql
+before_install:
+  - "psql createdb loopback -u postgres"
+install:
+  - npm install -g -y strongloop loopback
+  - npm install
