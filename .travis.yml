@@ -1,12 +1,13 @@
+required: sudo
 language: node_js
 node_js:
   - "6"
 services:
   - postgresql
 before_install:
-  - psql -c 'create database loopback;' -U postgres
-  - psql -c 'create user loopback;' -U postgres
-  - adduser loopback
+  - sudo -u postgres createdb loopback
+  - sudo -u postgres createuser -s loopback
+  - sudo adduser loopback
 install:
   - npm install -g -y strongloop loopback
   - npm install
