@@ -6,11 +6,12 @@
   "PostgreSQL": {
     "host": "localhost",
     "port": 5432,
-    "url": "postgres://loopback:terraillon@localhost/loopback",
+    "url": "postgres://loopback:terraillon@localhost:5432/loopback",
     "database": "loopback",
     "password": "terraillon",
     "name": "PostgreSQL",
     "user": "loopback",
-    "connector": "postgresql"
+    "connector": "postgresql",
+    "debug": true
   }
 }
