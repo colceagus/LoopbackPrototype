@@ -1,6 +1,9 @@
 {
   "name": "LoopbackPrototype",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.x"
+  },
   "main": "server/server.js",
   "scripts": {
     "lint": "eslint .",
