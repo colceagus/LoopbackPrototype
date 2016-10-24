@@ -13,10 +13,6 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db",
-    "public": false
-  },
   "UserModel": {
     "dataSource": "PostgreSQL",
     "public": true

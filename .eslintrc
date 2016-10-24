@@ -1,5 +1,9 @@
 {
   "extends": "loopback",
+  "rules": {
+    "no-unused-expressions": ["error", {"allowTernary": true}],
+    "comma-dangle": ["error", "never"]
+  },
   "parserOptions": {
   	"ecmaVersion": "6",
   	"sourceType": "module"

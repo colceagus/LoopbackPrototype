@@ -22,22 +22,7 @@ var createDefaultModels = (app) => {
   });
 };
 
-// Populate User Roles
-var createRoles = (app) => {
-
-};
-
-// Populate Database with Initial Data (Roles, Mappings etc.)
-var bootstrapData = (app) => {
-  // Create Roles
-  createRoles(app);
-};
-
 // Export boot script for Loopback
 module.exports = (app) => {
-  console.log('exported dbschema');
-
   createDefaultModels(app);
-
-  bootstrapData(app);
 };
