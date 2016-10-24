@@ -5,7 +5,7 @@ services:
   - postgresql
 before_install:
   - psql -c 'create database loopback;' -U postgres
-  - psql -c 'createuser -s loopback;' -U postgres
+  - psql -c 'create user -s loopback;' -U postgres
   - adduser loopback
 install:
   - npm install -g -y strongloop loopback
