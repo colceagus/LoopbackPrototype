@@ -1,3 +1,5 @@
+var log = require('debug')('boot:01-create-dbschema');
+
 // Create Default Models Schema in Database
 var createDefaultModels = (app) => {
   var appModels = [];

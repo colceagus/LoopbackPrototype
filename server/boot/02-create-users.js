@@ -9,31 +9,39 @@ var createDefaultUsers = (app) => {
 
   var users = [];
 
-  var roles = [{
-    name: 'admin',
-    users: [{
-      firstName: 'Admin',
-      lastName: 'User',
-      email: 'admin@admin.com',
-      username: 'admin',
-      password: 'admin'
-    }, {
-      firstName: 'dummy',
-      lastName: 'AdminUser',
-      email: 'dummyadmin@admin.com',
-      username: 'dummyadmin',
-      password: 'admin'
-    }]
-  }, {
-    name: 'user',
-    users: [{
-      firstName: 'Guest',
-      lastName: 'User',
-      email: 'user@user.com',
-      username: 'user',
-      password: 'user'
-    }]
-  }];
+  var roles = [
+    {
+      name: 'admin',
+      users: [
+        {
+          firstName: 'Admin',
+          lastName: 'User',
+          email: 'admin@admin.com',
+          username: 'admin',
+          password: 'admin'
+        },
+        {
+          firstName: 'dummy',
+          lastName: 'AdminUser',
+          email: 'dummyadmin@admin.com',
+          username: 'dummyadmin',
+          password: 'admin'
+        }
+      ]
+    },
+    {
+      name: 'user',
+      users: [
+        {
+          firstName: 'Guest',
+          lastName: 'User',
+          email: 'user@user.com',
+          username: 'user',
+          password: 'user'
+        }
+      ]
+    }
+  ];
 
   roles.forEach(role => {
     Role.findOrCreate(
@@ -41,7 +49,7 @@ var createDefaultUsers = (app) => {
       {name: role.name},
       (err, createdRole, created) => {
         if (err) {
-          console.error('error creating role: findOrCreate(' +
+          return console.error('error creating role: findOrCreate(' +
                                         role.name + ')', err);
         }
 
@@ -51,22 +59,22 @@ var createDefaultUsers = (app) => {
         role.users.forEach(roleUser => {
           User.findOrCreate(
             {where: {email: roleUser.email}},
-            {roleUser},
+            roleUser,
             (err, createdUser, created) => {
               if (err) {
-                console.error('error creating user: findOrCreate(' +
+                return console.error('error creating user: findOrCreate(' +
                                               roleUser + ')', err);
               }
 
               created ? log('created user', createdUser.username) :
-                          log('found user', createdUser.username);
+                        log('found user', createdUser.username);
 
               const roleMapping = {
                 principalType: RoleMapping.USER,
                 principalId: createdUser.id
               };
 
-              createdRole.principals.findOrCreate(
+              RoleMapping.findOrCreate(
                 {
                   where: {
                     and: [
@@ -75,10 +83,10 @@ var createDefaultUsers = (app) => {
                     ]
                   }
                 },
-                {roleMapping},
+                roleMapping,
                 (err, createdRoleMapping, created) => {
                   if (err) {
-                    console.error('error creating role mapping: findOrCreate(' +
+                    return console.error('error creating role mapping: findOrCreate(' +
                                                   roleMapping + ') ', err);
                   }
 
@@ -88,6 +96,8 @@ var createDefaultUsers = (app) => {
         });
       });
   });
+
+  return users;
 };
 
 module.exports = (app) => {
