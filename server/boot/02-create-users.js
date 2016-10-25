@@ -1,6 +1,6 @@
 var log = require('debug')('boot:02-create-users');
 
-var createDefaultUsers = (app) => {
+var createDefaultUsers = (app, callback) => {
   log('Creating roles and users');
 
   // Required Models (User, Role and RoleMapping)
@@ -46,6 +46,15 @@ var createDefaultUsers = (app) => {
     }
   ];
 
+  // Number of users to create
+  var userCount = roles.reduce((acc, current) => {
+    return acc + current.users.length;
+  }, 0);
+  console.log('Number of users to create: ', userCount);
+
+  // Counter for create Users function call (not necessarily created)
+  var createUserCallsMade = 0;
+
   // Create Roles, Users for the Roles created and User-Role Mappings
   roles.forEach(role => {
     Role.findOrCreate(
@@ -66,8 +75,10 @@ var createDefaultUsers = (app) => {
             roleUser,
             (err, createdUser, created) => {
               if (err) {
-                return console.error('error creating user: findOrCreate(' +
-                                              roleUser + ')', err);
+                var message = 'error creating user: findOrCreate(' +
+                                              roleUser + ')' + err.toString();
+                console.error(message);
+                return callback(new Error(message), null);
               }
 
               created ? log('created user', createdUser.username) :
@@ -90,11 +101,22 @@ var createDefaultUsers = (app) => {
                 roleMapping,
                 (err, createdRoleMapping, created) => {
                   if (err) {
-                    return console.error('error creating ' +
-                      'role mapping: findOrCreate(' + roleMapping + ') ', err);
+                    var message = 'error creating ' +
+                      'role mapping: findOrCreate(' +
+                       roleMapping + ') ' + err.toString();
+                    console.error(message);
+                    return callback(new Error(message), null);
                   }
 
+                  // Add the user to the created users array
                   users.push(createdUser);
+
+                  // Increase the number of calls made
+                  // We could have used users.length instead of userCount
+                  createUserCallsMade += 1;
+                  if (createUserCallsMade === userCount) {
+                    callback(null, users);
+                  }
                 });
             });
         });
@@ -105,6 +127,14 @@ var createDefaultUsers = (app) => {
   return users;
 };
 
-module.exports = (app) => {
-  createDefaultUsers(app);
+module.exports = (app, callback) => {
+  createDefaultUsers(app, function (err, result) {
+    if (err) {
+      return callback(err, null);
+    }
+
+    console.log('Created Default Users: ', result);
+
+    callback(null, result);
+  });
 };
