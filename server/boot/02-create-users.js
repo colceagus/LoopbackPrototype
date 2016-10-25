@@ -3,12 +3,15 @@ var log = require('debug')('boot:02-create-users');
 var createDefaultUsers = (app) => {
   log('Creating roles and users');
 
+  // Required Models (User, Role and RoleMapping)
   var User = app.models.UserModel;
   var Role = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
 
+  // Array of Users created to be returned by the function
   var users = [];
 
+  // Roles Definition and Users belonging to the Roles
   var roles = [
     {
       name: 'admin',
@@ -43,6 +46,7 @@ var createDefaultUsers = (app) => {
     }
   ];
 
+  // Create Roles, Users for the Roles created and User-Role Mappings
   roles.forEach(role => {
     Role.findOrCreate(
       {where: {name: role.name}},
@@ -97,6 +101,7 @@ var createDefaultUsers = (app) => {
       });
   });
 
+  // Return created Users
   return users;
 };
 
