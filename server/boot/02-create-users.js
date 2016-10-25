@@ -86,8 +86,8 @@ var createDefaultUsers = (app) => {
                 roleMapping,
                 (err, createdRoleMapping, created) => {
                   if (err) {
-                    return console.error('error creating role mapping: findOrCreate(' +
-                                                  roleMapping + ') ', err);
+                    return console.error('error creating ' +
+                      'role mapping: findOrCreate(' + roleMapping + ') ', err);
                   }
 
                   users.push(createdUser);
