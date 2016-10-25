@@ -128,7 +128,7 @@ var createDefaultUsers = (app, callback) => {
 };
 
 module.exports = (app, callback) => {
-  if (app.datasources.PostgreSQL.connected) {
+  var createDefaultUsersCall = function() {
     createDefaultUsers(app, function(err, result) {
       if (err) {
         return callback(err, null);
@@ -138,17 +138,11 @@ module.exports = (app, callback) => {
 
       callback(null, result);
     });
+  };
+
+  if (app.datasources.PostgreSQL.connected) {
+    createDefaultUsersCall();
   } else {
-    app.datasources.PostgreSQL.once('connected', function() {
-      createDefaultUsers(app, function(err, result) {
-        if (err) {
-          return callback(err, null);
-        }
-
-        console.log('Created Default Users: ', result);
-
-        callback(null, result);
-      });
-    });
+    app.datasources.PostgreSQL.once('connected', createDefaultUsersCall);
   }
 };
