@@ -26,5 +26,11 @@ var createDefaultModels = (app) => {
 
 // Export boot script for Loopback
 module.exports = (app) => {
-  createDefaultModels(app);
+  if (app.datasources.PostgreSQL.connected) {
+    createDefaultModels(app);
+  } else {
+    app.datasources.PostgreSQL.once('connected', function() {
+      createDefaultModels(app);
+    });
+  }
 };
