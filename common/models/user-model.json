@@ -17,12 +17,12 @@
     },
     "accessTokens": {
       "type": "hasMany",
-      "model": "AccessToken",
+      "model": "AccessTokenModel",
       "foreignKey": "userId"
     },
     "credentials": {
       "type": "hasMany",
-      "model": "UserIdentity",
+      "model": "UserIdentityModel",
       "foreignKey": "userId"
     }
   },

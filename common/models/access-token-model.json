@@ -1,7 +1,7 @@
 {
-  "name": "UserIdentity",
-  "plural": "userIdentities",
-  "base": "UserIdentity",
+  "name": "AccessTokenModel",
+  "plural": "accessTokens",
+  "base": "AccessToken",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -12,8 +12,7 @@
     "user": {
       "type": "belongsTo",
       "model": "UserModel",
-      "foreignKey": "userId",
-
+      "foreignKey": "userId"
     }
   },
   "acls": [],
