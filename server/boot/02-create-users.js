@@ -50,7 +50,7 @@ var createDefaultUsers = (app, callback) => {
   var userCount = roles.reduce((acc, current) => {
     return acc + current.users.length;
   }, 0);
-  console.log('Number of users to create: ', userCount);
+  log('Number of users to create: ', userCount);
 
   // Counter for create Users function call (not necessarily created)
   var createUserCallsMade = 0;
@@ -134,7 +134,7 @@ module.exports = (app, callback) => {
         return callback(err, null);
       }
 
-      console.log('Created Default Users: ', result);
+      log('Created Default Users: ', result);
 
       callback(null, result);
     });
