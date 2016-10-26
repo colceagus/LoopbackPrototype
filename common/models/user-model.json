@@ -22,6 +22,11 @@
     },
     "credentials": {
       "type": "hasMany",
+      "model": "UserCredentialModel",
+      "foreignKey": "userId"
+    },
+    "identities": {
+      "type": "hasMany",
       "model": "UserIdentityModel",
       "foreignKey": "userId"
     }
