@@ -17,10 +17,21 @@
     "dataSource": "PostgreSQL",
     "public": true
   },
+  "AccessTokenModel": {
+    "dataSource": "PostgreSQL",
+    "public": false
+  },
+  "UserIdentityModel": {
+    "dataSource": "PostgreSQL",
+    "public": false
+  },
+  "UserCredentialModel": {
+    "dataSource": "PostgreSQL",
+    "public": false
+  },
   "ACL": {
     "dataSource": "PostgreSQL",
-    "public": false,
-    "strict": true
+    "public": false
   },
   "RoleMapping": {
     "dataSource": "PostgreSQL",
@@ -29,17 +40,5 @@
   "Role": {
     "dataSource": "PostgreSQL",
     "public": false
-  },
-  "AccessTokenModel": {
-    "dataSource": "PostgreSQL",
-    "public": true
-  },
-  "UserIdentityModel": {
-    "dataSource": "PostgreSQL",
-    "public": true
-  },
-  "UserCredentialModel": {
-    "dataSource": "PostgreSQL",
-    "public": true
   }
 }
