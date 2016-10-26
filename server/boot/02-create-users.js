@@ -63,7 +63,6 @@ var createDefaultUsers = (app, callback) => {
       {name: role.name},
       (err, createdRole, created) => {
         if (err) {
-
           log('Error creating role: findOrCreate(' + role.name + ')', err);
           return callback(err, role.name);
         }
@@ -89,7 +88,7 @@ var createDefaultUsers = (app, callback) => {
 
               const roleMapping = {
                 principalType: RoleMapping.USER,
-                principalId: createdUser.id,
+                principalId: createdUser.id
                 // roleId: createdRole
               };
 
@@ -114,7 +113,7 @@ var createDefaultUsers = (app, callback) => {
 
                   // Add the user to the created users array
                   users.push({
-                    name: user.firstName + " " + user.lastName,
+                    name: user.firstName + ' ' + user.lastName,
                     email: user.email,
                     role: createdRole
                   });
