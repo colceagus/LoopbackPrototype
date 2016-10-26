@@ -50,6 +50,7 @@ var createDefaultUsers = (app, callback) => {
   var userCount = roles.reduce((acc, current) => {
     return acc + current.users.length;
   }, 0);
+
   log('Number of users to create: ', userCount);
 
   // Counter for create Users function call (not necessarily created)
@@ -62,12 +63,13 @@ var createDefaultUsers = (app, callback) => {
       {name: role.name},
       (err, createdRole, created) => {
         if (err) {
-          return console.error('error creating role: findOrCreate(' +
-                                        role.name + ')', err);
+
+          log('Error creating role: findOrCreate(' + role.name + ')', err);
+          return callback(err, role.name);
         }
 
-        created ? log('created role ', createdRole.name) :
-                  log('found role ', createdRole.name);
+        (created) ? log('created role ', createdRole.name) :
+                    log('found role ', createdRole.name);
 
         role.users.forEach(roleUser => {
           User.findOrCreate(
@@ -75,10 +77,11 @@ var createDefaultUsers = (app, callback) => {
             roleUser,
             (err, createdUser, created) => {
               if (err) {
-                var message = 'error creating user: findOrCreate(' +
-                                              roleUser + ')' + err.toString();
-                console.error(message);
-                return callback(new Error(message), null);
+                var message = 'Error creating user: findOrCreate(' +
+                               roleUser + ')' + err.toString();
+                log(message);
+
+                return callback(err, roleUser.name);
               }
 
               created ? log('created user', createdUser.username) :
@@ -86,7 +89,8 @@ var createDefaultUsers = (app, callback) => {
 
               const roleMapping = {
                 principalType: RoleMapping.USER,
-                principalId: createdUser.id
+                principalId: createdUser.id,
+                // roleId: createdRole
               };
 
               RoleMapping.findOrCreate(
@@ -104,12 +108,16 @@ var createDefaultUsers = (app, callback) => {
                     var message = 'error creating ' +
                       'role mapping: findOrCreate(' +
                        roleMapping + ') ' + err.toString();
-                    console.error(message);
-                    return callback(new Error(message), null);
+                    log(message);
+                    return callback(err, roleMapping);
                   }
 
                   // Add the user to the created users array
-                  users.push(createdUser);
+                  users.push({
+                    name: user.firstName + " " + user.lastName,
+                    email: user.email,
+                    role: createdRole
+                  });
 
                   // Increase the number of calls made
                   // We could have used users.length instead of userCount
@@ -131,10 +139,13 @@ module.exports = (app, callback) => {
   var createDefaultUsersCall = function() {
     createDefaultUsers(app, function(err, result) {
       if (err) {
+        var message = 'Error creating default Roles and Users ' +
+                      'on ' + result + '. ' + err;
+        log(message);
         return callback(err, null);
       }
 
-      log('Created Default Users: ', result);
+      log('Created Default Users and Roles: ', result);
 
       callback(null, result);
     });

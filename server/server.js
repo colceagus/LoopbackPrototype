@@ -3,6 +3,8 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
+// TODO: Bootstrap Passport
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
