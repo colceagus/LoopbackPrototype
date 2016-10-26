@@ -113,8 +113,8 @@ var createDefaultUsers = (app, callback) => {
 
                   // Add the user to the created users array
                   users.push({
-                    name: user.firstName + ' ' + user.lastName,
-                    email: user.email,
+                    name: roleUser.firstName + ' ' + roleUser.lastName,
+                    email: roleUser.email,
                     role: createdRole
                   });
 
