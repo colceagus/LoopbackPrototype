@@ -88,8 +88,8 @@ var createDefaultUsers = (app, callback) => {
 
               const roleMapping = {
                 principalType: RoleMapping.USER,
-                principalId: createdUser.id
-                // roleId: createdRole
+                principalId: createdUser.id,
+                roleId: createdRole.id
               };
 
               RoleMapping.findOrCreate(
@@ -97,7 +97,8 @@ var createDefaultUsers = (app, callback) => {
                   where: {
                     and: [
                       {principalType: RoleMapping.USER},
-                      {principalId: createdUser.id}
+                      {principalId: createdUser.id},
+                      {roleId: createdRole.id}
                     ]
                   }
                 },
