@@ -1,10 +1,58 @@
 {
-  "final:after": {
-    "strong-error-handler": {
+  "initial:before": {
+    "loopback#favicon": {}
+  },
+  "initial": {
+    "compression": {},
+    "cors": {
       "params": {
-        "debug": true,
-        "log": true
+        "origin": true,
+        "credentials": true,
+        "maxAge": 86400
       }
     }
+  },
+  "session:before": {
+    "cookie-parser": {
+      "params": "${cookieSecret}"
+    }
+  },
+  "session": {
+    "express-session": {
+      "params": {
+        "secret": "${sessionSecret}",
+        "saveUninitialized": true,
+        "resave": true
+      }
+    }
+  },
+  "auth": {
+    "loopback#token": {
+      "params": {
+        "model": "AccessTokenModel"
+      }
+    }
+  },
+  "parse": {
+    "body-parser#json": {},
+    "body-parser#urlencoded": {
+      "params": {
+        "extended": true
+      }
+    }
+  },
+  "routes": {
+    "loopback#rest": {
+      "paths": [
+        "${restApiRoot}"
+      ]
+    }
+  },
+  "files": {},
+  "final": {
+    "loopback#urlNotFound": {}
+  },
+  "final:after": {
+    "strong-error-handler": {}
   }
 }

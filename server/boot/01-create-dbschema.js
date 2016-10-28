@@ -1,4 +1,4 @@
-var log = require('debug')('boot:01-create-dbschema');
+var log = require('debug')('loopback:boot:01-create-dbschema');
 
 // Create Default Models Schema in Database
 var createDefaultModels = (app, callback) => {

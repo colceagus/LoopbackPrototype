@@ -1,4 +1,4 @@
-var log = require('debug')('boot:02-create-users');
+var log = require('debug')('loopback:boot:02-create-users');
 
 var createDefaultUsers = (app, callback) => {
   log('Creating roles and users');
@@ -92,6 +92,9 @@ var createDefaultUsers = (app, callback) => {
                 roleId: createdRole.id
               };
 
+              // Using RoleMapping Model instead of role.principals.create
+              // because it created new RoleMapping entries with each server
+              // (re)start
               RoleMapping.findOrCreate(
                 {
                   where: {
@@ -114,9 +117,9 @@ var createDefaultUsers = (app, callback) => {
 
                   // Add the user to the created users array
                   users.push({
-                    name: roleUser.firstName + ' ' + roleUser.lastName,
+                    username: roleUser.username,
                     email: roleUser.email,
-                    role: createdRole
+                    role: createdRole.name
                   });
 
                   // Increase the number of calls made

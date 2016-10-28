@@ -30,9 +30,42 @@
       "enabled": false
     }
   },
-  "session": {},
-  "auth": {},
-  "parse": {},
+  "session:before": {
+    "cookie-parser": {
+      "params": "${cookieSecret}"
+    }
+  },
+  "session": {
+    "express-session": {
+      "params": {
+        "secret": "${sessionSecret}",
+        "saveUninitialized": true,
+        "resave": true
+      }
+    }
+  },
+  "auth": {
+    "loopback#token": {
+      "params": {
+        "model": "AccessTokenModel"
+      }
+    }
+  },
+  "parse": {
+    "body-parser#json": {},
+    "body-parser#urlencoded": {
+      "params": {
+        "extended": true
+      }
+    }
+  },
+  "routes": {
+    "loopback#rest": {
+      "paths": [
+        "${restApiRoot}"
+      ]
+    }
+  },
   "routes": {
     "loopback#rest": {
       "paths": [
