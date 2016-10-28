@@ -46,5 +46,34 @@
     "authOptions": {
       "display": "popup"
     }
+  },
+  "google-login": {
+    "provider": "google",
+    "module": "passport-google-oauth",
+    "strategy": "OAuth2Strategy",
+    "clientID": "621453990332-8n5gchrrjljl7akpe5bjtur8ic9031ps.apps.googleusercontent.com",
+    "clientSecret": "f_2u9o25ad3yAnhf4ZvZZqI9",
+    "callbackURL": "/auth/google/callback",
+    "authPath": "/auth/google",
+    "callbackPath": "/auth/google/callback",
+    "successRedirect": "/explorer",
+    "failureRedirect": "/",
+    "scope": ["email", "profile"],
+    "failureFlash": true
+  },
+  "google-link": {
+    "provider": "google",
+    "module": "passport-google-oauth",
+    "strategy": "OAuth2Strategy",
+    "clientID": "621453990332-8n5gchrrjljl7akpe5bjtur8ic9031ps.apps.googleusercontent.com",
+    "clientSecret": "f_2u9o25ad3yAnhf4ZvZZqI9",
+    "callbackURL": "/link/google/callback",
+    "authPath": "/link/google",
+    "callbackPath": "/link/google/callback",
+    "successRedirect": "/explorer",
+    "failureRedirect": "/",
+    "scope": ["email", "profile"],
+    "link": true,
+    "failureFlash": true
   }
 }
