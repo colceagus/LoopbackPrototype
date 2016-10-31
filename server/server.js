@@ -1,7 +1,6 @@
 var log = require('debug')('loopback:server');
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-var exsess = require('express-session');
 var app = module.exports = loopback();
 
 // Bootstrap Passport
@@ -58,10 +57,8 @@ boot(app, __dirname, function(err) {
     passportConfigurator.configureProvider(strategy, strategyConfig);
   }
 
-  // Not really needed, since we don't provide views from the server-side
-  // Middleware for Ensuring that the user is logged in
-  // var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
-
+  // Start function of the Application
+  // Starts listening on host:port defined in config.env.json
   app.start = function() {
     // start the web server
     return app.listen(function() {
