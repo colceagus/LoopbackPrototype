@@ -3,6 +3,8 @@
     "loopback#favicon": {}
   },
   "initial": {
+    "loopback-context#per-request": {
+    },
     "compression": {},
     "cors": {
       "params": {
@@ -35,15 +37,7 @@
       "params": "${cookieSecret}"
     }
   },
-  "session": {
-    "express-session": {
-      "params": {
-        "secret": "${sessionSecret}",
-        "saveUninitialized": true,
-        "resave": true
-      }
-    }
-  },
+  "session": {},
   "auth": {
     "loopback#token": {
       "params": {

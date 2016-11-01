@@ -1,0 +1,52 @@
+{
+  "en": {
+    "578b2bcd9c280030659d3842bb723840": "email is missing from the user profile",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}} is not a function",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "No user is logged in"
+  },
+  "de": {
+    "578b2bcd9c280030659d3842bb723840": "Email fehlt im Benutzerprofil",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}} ist keine Funktion",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "Kein Benutzer wird angemeldet"
+  },
+  "es": {
+    "578b2bcd9c280030659d3842bb723840": "Falta el correo electrónico del perfil de usuario",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}} no es una función",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "Ningún usuario ha iniciado sesión"
+  },
+  "fr": {
+    "578b2bcd9c280030659d3842bb723840": "E-mail est manquante dans le profil utilisateur",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}} n'est pas une fonction",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "Aucun utilisateur n'est connecté"
+  },
+  "it": {
+    "578b2bcd9c280030659d3842bb723840": "La posta elettronica manca dal profilo utente",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}} non è una funzione",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "Nessun utente è connesso"
+  },
+  "pt": {
+    "578b2bcd9c280030659d3842bb723840": "E-mail está ausente do perfil do usuário",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}} não é uma função",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "Nenhum usuário efetuou login"
+  },
+  "ja": {
+    "578b2bcd9c280030659d3842bb723840": "Eメールは、ユーザー・プロフィールから失敗しています",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}}機能ではありません",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "ユーザーがあるいいえはログインします"
+  },
+  "ko": {
+    "578b2bcd9c280030659d3842bb723840": "이메일은 사용자 프로파일로부터 없어 진다.",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}}은 기능이 아니다.",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "어떤 사용자도 로그인해 지지 않다."
+  },
+  "zh-Hans": {
+    "578b2bcd9c280030659d3842bb723840": "电子邮件是在用户侧面中缺少的",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}}不是一个功能",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "能乐用户被登录"
+  },
+  "zh-Hant": {
+    "578b2bcd9c280030659d3842bb723840": "電子郵件是在用戶側面中缺少的",
+    "5a29d5f8c9c46a68663df6ced451f164": "{{req.flash}}不是一個功能",
+    "9cb5cd2573edd84e8de3ac5b2e19ee56": "能樂用戶被記錄在中"
+  }
+}

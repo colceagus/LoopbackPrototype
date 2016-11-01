@@ -1,0 +1,73 @@
+{
+  "lib/index.js": {
+    "24": [
+      "loadModel('./models/user-identity.json')"
+    ],
+    "25": [
+      "loadModel('./models/user-credential.json')"
+    ],
+    "27": [
+      "loadModel('./models/application-credential.json')"
+    ]
+  },
+  "lib/models/user-identity.js": {
+    "63": [
+      "utils.generateKey('password')"
+    ],
+    "130": [
+      "g.f('578b2bcd9c280030659d3842bb723840')"
+    ]
+  },
+  "lib/models/utils.js": {
+    "38": [
+      "g.f('172c11e3d5c779979855ee32b3c70f7c')"
+    ]
+  },
+  "lib/passport-configurator.js": {
+    "76": [
+      "middleware('session:after')"
+    ],
+    "79": [
+      "middleware('session:after')"
+    ],
+    "270": [
+      "g.f('17540dd5530bbd31632b4a8ae6d66e14')"
+    ],
+    "306": [
+      "g.f('f718846036bbb0ce4f43e2c92c7aacbf')"
+    ],
+    "313": [
+      "g.f('f718846036bbb0ce4f43e2c92c7aacbf')"
+    ],
+    "351": [
+      "g.f('9cb5cd2573edd84e8de3ac5b2e19ee56')"
+    ],
+    "377": [
+      "g.f('9cb5cd2573edd84e8de3ac5b2e19ee56')"
+    ],
+    "403": [
+      "g.f('9cb5cd2573edd84e8de3ac5b2e19ee56')"
+    ],
+    "430": [
+      "g.f('9cb5cd2573edd84e8de3ac5b2e19ee56')"
+    ],
+    "452": [
+      "g.f('6af6fbccb22566c3a89c1e6a0ddbb244')"
+    ],
+    "471": [
+      "res.cookie('access_token')"
+    ],
+    "478": [
+      "res.cookie('userId')"
+    ],
+    "495": [
+      "res.cookie('access_token')"
+    ],
+    "499": [
+      "res.cookie('userId')"
+    ],
+    "558": [
+      "g.f('5a29d5f8c9c46a68663df6ced451f164')"
+    ]
+  }
+}

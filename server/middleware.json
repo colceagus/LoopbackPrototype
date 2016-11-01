@@ -10,29 +10,31 @@
         "credentials": true,
         "maxAge": 86400
       }
-    }
-  },
-  "session:before": {
-    "cookie-parser": {
-      "params": "${cookieSecret}"
-    }
-  },
-  "session": {
-    "express-session": {
+    },
+    "loopback-context#per-request": {
+      "enableHttpContext": true
+    },
+    "helmet#xssFilter": {},
+    "helmet#frameguard": {
+      "params": [
+        "deny"
+       ]
+    },
+    "helmet#hsts": {
       "params": {
-        "secret": "${sessionSecret}",
-        "saveUninitialized": true,
-        "resave": true
+        "maxAge": 0,
+        "includeSubdomains": true
       }
+    },
+    "helmet#hidePoweredBy": {},
+    "helmet#ieNoOpen": {},
+    "helmet#noSniff": {},
+    "helmet#noCache": {
+      "enabled": false
     }
   },
-  "auth": {
-    "loopback#token": {
-      "params": {
-        "model": "AccessTokenModel"
-      }
-    }
-  },
+  "session": {},
+  "auth": {},
   "parse": {
     "body-parser#json": {},
     "body-parser#urlencoded": {

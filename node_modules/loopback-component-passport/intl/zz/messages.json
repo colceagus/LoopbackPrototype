@@ -1,0 +1,51 @@
+{
+  "./models/application-credential.json": [
+    "loadModel:lib/index.js:27"
+  ],
+  "./models/user-credential.json": [
+    "loadModel:lib/index.js:25"
+  ],
+  "./models/user-identity.json": [
+    "loadModel:lib/index.js:24"
+  ],
+  "578b2bcd9c280030659d3842bb723840": [
+    "g.f:lib/models/user-identity.js:130"
+  ],
+  "password": [
+    "utils.generateKey:lib/models/user-identity.js:63"
+  ],
+  "172c11e3d5c779979855ee32b3c70f7c": [
+    "g.f:lib/models/utils.js:38"
+  ],
+  "17540dd5530bbd31632b4a8ae6d66e14": [
+    "g.f:lib/passport-configurator.js:270"
+  ],
+  "5a29d5f8c9c46a68663df6ced451f164": [
+    "g.f:lib/passport-configurator.js:558"
+  ],
+  "6af6fbccb22566c3a89c1e6a0ddbb244": [
+    "g.f:lib/passport-configurator.js:452"
+  ],
+  "9cb5cd2573edd84e8de3ac5b2e19ee56": [
+    "g.f:lib/passport-configurator.js:351",
+    "g.f:lib/passport-configurator.js:377",
+    "g.f:lib/passport-configurator.js:403",
+    "g.f:lib/passport-configurator.js:430"
+  ],
+  "f718846036bbb0ce4f43e2c92c7aacbf": [
+    "g.f:lib/passport-configurator.js:306",
+    "g.f:lib/passport-configurator.js:313"
+  ],
+  "access_token": [
+    "res.cookie:lib/passport-configurator.js:471",
+    "res.cookie:lib/passport-configurator.js:495"
+  ],
+  "session:after": [
+    "middleware:lib/passport-configurator.js:76",
+    "middleware:lib/passport-configurator.js:79"
+  ],
+  "userId": [
+    "res.cookie:lib/passport-configurator.js:478",
+    "res.cookie:lib/passport-configurator.js:499"
+  ]
+}

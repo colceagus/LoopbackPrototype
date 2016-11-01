@@ -10,29 +10,13 @@
         "credentials": true,
         "maxAge": 86400
       }
+    },
+    "loopback-context#per-request": {
+      "enableHttpContext": true
     }
   },
-  "session:before": {
-    "cookie-parser": {
-      "params": "${cookieSecret}"
-    }
-  },
-  "session": {
-    "express-session": {
-      "params": {
-        "secret": "${sessionSecret}",
-        "saveUninitialized": true,
-        "resave": true
-      }
-    }
-  },
-  "auth": {
-    "loopback#token": {
-      "params": {
-        "model": "AccessTokenModel"
-      }
-    }
-  },
+  "session": {},
+  "auth": {},
   "parse": {
     "body-parser#json": {},
     "body-parser#urlencoded": {
