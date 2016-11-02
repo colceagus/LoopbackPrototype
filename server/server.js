@@ -51,12 +51,12 @@ boot(app, __dirname, function(err) {
   }));
 
   app.middleware('parse:after', function(req, res, next) {
-    console.log('HELLO: ', req.session.id);
-    console.log('HELLO:', JSON.stringify(req.session));
-    console.log('HELLO: ', req.access_token);
-    console.log('HELLO: ', req.accessToken);
-    console.log('HELLO: ', req.session.access_token);
-    console.log('HELLO: ', req.session.accessToken);
+    // console.log('HELLO: ', req.session.id);
+    // console.log('HELLO:', JSON.stringify(req.session));
+    // console.log('HELLO: ', req.access_token);
+    // console.log('HELLO: ', req.accessToken);
+    // console.log('HELLO: ', req.session.access_token);
+    // console.log('HELLO: ', req.session.accessToken);
     next();
   });
 
