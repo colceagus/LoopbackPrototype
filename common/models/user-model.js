@@ -12,7 +12,8 @@ module.exports = function(User) {
       to: user.email,
       from: 'noreply@pentalog.fr',
       subject: 'Thanks for registering.',
-      template: path.resolve(__dirname, '../../server/templates/email-verify.ejs'),
+      template: path.resolve(__dirname,
+        '../../server/templates/email-verify.ejs'),
       redirect: '/verified',
       user: user
     };
