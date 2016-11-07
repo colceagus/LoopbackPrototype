@@ -4,6 +4,7 @@
     "connector": "memory"
   },
   "PostgreSQL": {
+    "name": "PostgreSQL",
     "host": "localhost",
     "port": 5432,
     "url": "postgres://loopback:terraillon@localhost:5432/loopback",
@@ -13,5 +14,25 @@
     "user": "loopback",
     "connector": "postgresql",
     "debug": true
+  },
+  "EmailDs": {
+    "name": "EmailDs",
+    "connector": "mail",
+    "defaultForType": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.pentalog.fr",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "dcolceag@pentalog.fr",
+          "pass": "Op3npentalog"
+        }
+      }
+    ]
   }
 }

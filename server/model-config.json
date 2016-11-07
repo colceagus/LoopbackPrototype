@@ -16,7 +16,10 @@
   },
   "UserModel": {
     "dataSource": "PostgreSQL",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "AccessTokenModel": {
     "dataSource": "PostgreSQL",
@@ -41,5 +44,8 @@
   "Role": {
     "dataSource": "PostgreSQL",
     "public": false
+  },
+  "Email": {
+    "dataSource": "EmailDs"
   }
 }

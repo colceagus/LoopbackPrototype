@@ -1,7 +1,7 @@
 var log = require('debug')('loopback:boot:02-create-users');
 
 var createDefaultUsers = (app, callback) => {
-  log('Creating roles and users');
+  // log('Creating roles and users');
 
   // Required Models (User, Role and RoleMapping)
   var User = app.models.UserModel;
@@ -51,7 +51,7 @@ var createDefaultUsers = (app, callback) => {
     return acc + current.users.length;
   }, 0);
 
-  log('Number of users to create: ', userCount);
+  // log('Number of users to create: ', userCount);
 
   // Counter for create Users function call (not necessarily created)
   var createUserCallsMade = 0;
@@ -78,7 +78,7 @@ var createDefaultUsers = (app, callback) => {
               if (err) {
                 var message = 'Error creating user: findOrCreate(' +
                                roleUser + ')' + err.toString();
-                log(message);
+                // log(message);
 
                 return callback(err, roleUser.name);
               }
@@ -144,11 +144,11 @@ module.exports = (app, callback) => {
       if (err) {
         var message = 'Error creating default Roles and Users ' +
                       'on ' + result + '. ' + err;
-        log(message);
+        // log(message);
         return callback(err, null);
       }
 
-      log('Created Default Users and Roles: ', result);
+      // log('Created Default Users and Roles: ', result);
 
       callback(null, result);
     });

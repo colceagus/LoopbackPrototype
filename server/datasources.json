@@ -4,6 +4,7 @@
     "connector": "memory"
   },
   "PostgreSQL": {
+    "name": "PostgreSQL",
     "host": "ec2-54-228-213-113.eu-west-1.compute.amazonaws.com",
     "port": 5432,
     "url": "postgres://zxnmvqgsolnrcw:KGM9ZKPMN7FtjT-ue0a-GR4xtM@ec2-54-228-213-113.eu-west-1.compute.amazonaws.com:5432/dfi5mecid33jh8",
@@ -13,5 +14,25 @@
     "user": "zxnmvqgsolnrcw",
     "connector": "postgresql",
     "debug": true
+  },
+  "EmailDs": {
+    "name": "EmailDs",
+    "connector": "mail",
+    "defaultForType": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.pentalog.fr",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "dcolceag@pentalog.fr",
+          "pass": "Op3npentalog"
+        }
+      }
+    ]
   }
 }

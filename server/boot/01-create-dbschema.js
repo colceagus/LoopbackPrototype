@@ -12,13 +12,19 @@ var createDefaultModels = (app, callback) => {
     appModels.splice(userModelIndex, 1);
   }
 
+  // Remove Email Model
+  var emailModelIndex = appModels.indexOf('Email');
+  if (emailModelIndex > -1) {
+    appModels.splice(emailModelIndex, 1);
+  }
+
   // Get all Models that use the Database Datasource
   var ds = app.dataSources.PostgreSQL;
   ds.isActual(appModels, function(err, actual) {
     if (err) {
       // Error occurred checking the differences
       // between database schema and models
-      log('Error verifying database against model definitions.', err);
+      // log('Error verifying database against model definitions.', err);
       return callback(err, false);
     }
 
@@ -32,7 +38,7 @@ var createDefaultModels = (app, callback) => {
     ds.autoupdate(appModels, function(err) {
       if (err) {
         // Error occurred while updating the models
-        log('Error autoupdating models.', err);
+        // log('Error autoupdating models.', err);
         return callback(err, false);
       }
 
@@ -51,7 +57,7 @@ module.exports = (app, callback) => {
         var message = 'Error creating Database Schema ' +
                       'from Model Definitions.' + err;
 
-        log(message);
+        // log(message);
 
         return callback(err, null);
       }
@@ -62,7 +68,7 @@ module.exports = (app, callback) => {
                              'Database Schema is up to date ' +
                              'with Model Definitions.';
 
-      log(message);
+      // log(message);
 
       callback(null, result);
     });

@@ -1,4 +1,5 @@
 var log = require('debug')('loopback:server');
+var path = require('path');
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var app = module.exports = loopback();
@@ -20,6 +21,10 @@ boot(app, __dirname, function(err) {
       }
     });
   };
+
+  // Set EJS templating engine for Email
+  app.set('view engine', 'ejs');
+  app.set('views', path.join(__dirname, 'templates'));
 
   // Middleware
   // Phases Order: initial, session, auth, parse, routes, final.
@@ -49,16 +54,6 @@ boot(app, __dirname, function(err) {
       maxAge: 60000
     }
   }));
-
-  app.middleware('parse:after', function(req, res, next) {
-    // console.log('HELLO: ', req.session.id);
-    // console.log('HELLO:', JSON.stringify(req.session));
-    // console.log('HELLO: ', req.access_token);
-    // console.log('HELLO: ', req.accessToken);
-    // console.log('HELLO: ', req.session.access_token);
-    // console.log('HELLO: ', req.session.accessToken);
-    next();
-  });
 
   // AUTH MIDDLEWARE PHASE: Access Token
   app.middleware('auth', loopback.token({

@@ -17,7 +17,7 @@ var createDefaultAcls = function(app, callback) {
     return acc + (elem.acls ? elem.acls.length : 0);
   }, 0);
 //  log('aclEntries: ', JSON.stringify(aclEntries, null, 4));
-  log('totalAcls: ', totalAcls);
+//  log('totalAcls: ', totalAcls);
 
   var aclNo = 0;
   aclEntries.forEach(modelEntry => {
@@ -53,8 +53,8 @@ var createDefaultAcls = function(app, callback) {
           }
 
           aclNo += 1;
-          log('Current ACL number: ', aclNo);
-          log('Created ACL: ', createdAcl);
+          // log('Current ACL number: ', aclNo);
+          // log('Created ACL: ', createdAcl);
           if (aclNo === totalAcls) {
             callback(null, aclNo);
           }
@@ -69,7 +69,7 @@ module.exports = function(app, callback) {
     createDefaultAcls(app, function(err, result) {
       if (err) {
         var message = 'Error creating acl: ' + err;
-        log(message);
+        // log(message);
         return callback(err, result);
       }
 

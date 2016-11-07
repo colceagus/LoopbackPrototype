@@ -12,7 +12,7 @@ module.exports = function(User) {
       to: user.email,
       from: 'noreply@pentalog.fr',
       subject: 'Thanks for registering.',
-      //template: path.resolve(__dirname, '../../server/views/verify.ejs'),
+      template: path.resolve(__dirname, '../../server/templates/email-verify.ejs'),
       redirect: '/verified',
       user: user
     };
@@ -32,6 +32,8 @@ module.exports = function(User) {
         redirectTo: '/',
         redirectToLinkText: 'Log in'
       });
+
+      //next();
     });
   });
 
@@ -47,7 +49,7 @@ module.exports = function(User) {
       subject: 'Password reset',
       html: html
     }, function(err) {
-      if (err) return console.log('> error sending password reset email');
+      if (err) return log('> error sending password reset email');
       log('> sending password reset email to:', info.email);
     });
   });
