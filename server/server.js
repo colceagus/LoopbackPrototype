@@ -39,7 +39,7 @@ boot(app, __dirname, function(err) {
   var session = require('express-session');
   var RedisStore = require('connect-redis')(session);
   var store = new RedisStore({
-    host: 'localhost',
+    host: 'redis.danielcolceag.com',
     port: 6379,
     ttl: 60000
   });
