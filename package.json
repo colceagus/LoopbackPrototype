@@ -32,7 +32,6 @@
     "loopback": "^2.36.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.7.0",
-    "loopback-component-passport": "^2.3.0",
     "loopback-connector-postgresql": "^2.7.0",
     "loopback-datasource-juggler": "^2.39.0",
     "passport": "^0.3.2",
