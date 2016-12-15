@@ -7,7 +7,7 @@
     "name": "PostgreSQL",
     "host": "db.danielcolceag.com",
     "port": 5432,
-    "url": "postgres://loopback:dob-demo@localhost:5432/loopback",
+    "url": "postgres://loopback:dob-demo@db.danielcolceag.com:5432/loopback",
     "database": "loopback",
     "password": "dob-demo",
     "name": "PostgreSQL",
