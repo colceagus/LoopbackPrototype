@@ -1,8 +1,8 @@
 {
   "restApiRoot": "/api",
-  "host": "localhost",
-  "port": 3000,
-  "url": "http://localhost:3000/",
+  "host": "danielcolceag.com",
+  "port": 80,
+  "url": "http://danielcolceag.com:80/",
   "cookieSecret": "whatever",
   "sessionSecret": "whatever",
   "remoting": {
